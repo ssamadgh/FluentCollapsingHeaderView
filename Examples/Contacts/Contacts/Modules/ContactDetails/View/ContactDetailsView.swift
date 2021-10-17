@@ -56,6 +56,7 @@ final class ContactDetailsView: UIViewController, ViewInterface {
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
             self.topHeaderConstraint.constant -= self.navigationController?.navigationBar.frame.height ?? 0
+            self.view.setNeedsUpdateConstraints()
         }
     }
 		
@@ -79,4 +80,7 @@ final class ContactDetailsView: UIViewController, ViewInterface {
 
 extension ContactDetailsView: ContactDetailsViewInterface {
 	
+    func reload() {
+        tableView.reloadData()
+    }
 }

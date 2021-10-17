@@ -47,7 +47,12 @@ extension ContactsListPresenter: ContactsListPresenterViewInterface {
         kate.company = "Apple Co."
         kate.phones = [
             Contact.Phone(type: "iPhone", number: "+123456789"),
-            Contact.Phone(type: "home", number: "+1987654321")
+            Contact.Phone(type: "home1", number: "+1987654321"),
+            Contact.Phone(type: "home2", number: "+1987654322"),
+            Contact.Phone(type: "work1", number: "+1435464663"),
+            Contact.Phone(type: "work2", number: "+1435464664")
+
+
         ]
         kate.emails = [
             Contact.Email(type: "work", mail: "kate@apple.com"),

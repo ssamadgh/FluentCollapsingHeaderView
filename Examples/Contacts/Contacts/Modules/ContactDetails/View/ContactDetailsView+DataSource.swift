@@ -10,17 +10,18 @@ import UIKit
 extension ContactDetailsView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        presenter.numberOfSections
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        presenter.numberOfRows(at: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ContactDetailPhoneCell(reuseIdentifier: "Contact")
-        cell.textLabel?.text = "iPhone"
-        cell.detailTextLabel?.text = "00 1 2334 445"
+
+        cell.textLabel?.text = presenter.key(for: indexPath)
+        cell.detailTextLabel?.text = presenter.value(for: indexPath)
         
         return cell
     }

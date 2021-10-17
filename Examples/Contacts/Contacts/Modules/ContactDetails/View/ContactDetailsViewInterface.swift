@@ -9,4 +9,5 @@ import UIKit
 
 protocol ContactDetailsViewInterface: ViewPresenterInterface {
 
+    func reload()
 }

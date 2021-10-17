@@ -13,4 +13,11 @@ protocol ContactDetailsPresenterViewInterface: PresenterViewInterface {
     var fullName: String { get }
     var company: String? { get }
     var avatar: UIImage { get }
+    
+    var numberOfSections: Int { get }
+    func numberOfRows(at section: Int) -> Int
+    func key(for indexPath: IndexPath) -> String
+    func value(for indexPath: IndexPath) -> String
+
+    
 }

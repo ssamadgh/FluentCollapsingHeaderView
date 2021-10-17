@@ -29,4 +29,5 @@ final class ContactDetailsModule: ModuleInterface {
 
         return view
     }
+    
 }

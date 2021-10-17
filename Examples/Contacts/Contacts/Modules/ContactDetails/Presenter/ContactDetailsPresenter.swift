@@ -16,6 +16,8 @@ final class ContactDetailsPresenter: PresenterInterface {
 
     let contact: Contact
     
+    var viewModel: [ViewSectionModel] = []
+    
     init(contact: Contact) {
         self.contact = contact
     }
@@ -33,7 +35,10 @@ extension ContactDetailsPresenter: ContactDetailsPresenterInteractorInterface {
 extension ContactDetailsPresenter: ContactDetailsPresenterViewInterface {
 
     func viewDidLoad() {
-
+        DispatchQueue.main.async {
+            self.viewModel = self.contact.viewModel
+            self.view.reload()
+        }
     }
 
     var fullName: String {
@@ -47,5 +52,41 @@ extension ContactDetailsPresenter: ContactDetailsPresenterViewInterface {
     var avatar: UIImage {
         AvatarGenerator.generate(withFirstName: contact.firstName ?? "", lastName: contact.lastName ?? "")
     }
+    
+    var numberOfSections: Int {
+        viewModel.count
+    }
+    
+    func numberOfRows(at section: Int) -> Int {
+        switch viewModel[section] {
+        case .mail(let mails):
+            return mails.count
+        case .number(let numbers):
+            return numbers.count
+        }
+    }
+    
+    func model(at section: Int) -> ViewSectionModel {
+        viewModel[section]
+    }
+    
+    func key(for indexPath: IndexPath) -> String {
+        switch model(at: indexPath.section) {
+        case .number(let phones):
+            return phones[indexPath.row].type
+        case .mail(let mailes):
+            return mailes[indexPath.row].type
+        }
+    }
+    
+    func value(for indexPath: IndexPath) -> String {
+        switch model(at: indexPath.section) {
+        case .number(let phones):
+            return phones[indexPath.row].number
+        case .mail(let mailes):
+            return mailes[indexPath.row].mail
+        }
+    }
+
     
 }
