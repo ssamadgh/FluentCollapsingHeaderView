@@ -16,7 +16,7 @@ final class ContactDetailsPresenter: PresenterInterface {
 
     let contact: Contact
     
-    var viewModel: [ViewSectionModel] = []
+    var viewModel: [ViewSectionModel] { contact.viewModel }
     
     init(contact: Contact) {
         self.contact = contact
@@ -35,10 +35,7 @@ extension ContactDetailsPresenter: ContactDetailsPresenterInteractorInterface {
 extension ContactDetailsPresenter: ContactDetailsPresenterViewInterface {
 
     func viewDidLoad() {
-        DispatchQueue.main.async {
-            self.viewModel = self.contact.viewModel
-            self.view.reload()
-        }
+
     }
 
     var fullName: String {

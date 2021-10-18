@@ -49,7 +49,6 @@ final class MainView: UIViewController, ViewInterface {
         headerView?.delegate = self
         headerView.minHeight = floor((UIScreen.main.bounds.height)*0.136)
         headerView.maxHeight = floor((UIScreen.main.bounds.height)*0.45)
-        headerView.ignoreSafeAreaInsets = true
 
         locationLabel.text = ""
         conditionLabel.text = ""

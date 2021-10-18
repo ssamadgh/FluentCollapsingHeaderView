@@ -53,7 +53,7 @@ public class FluentCollapsingHeaderView: UIView {
     private var observer: NSKeyValueObservation?
     
     
-    public var ignoreSafeAreaInsets = false {
+    public var ignoreSafeAreaInsets = true {
         didSet {
             setupScrollViewForHeaderHeight()
         }
@@ -111,9 +111,7 @@ public class FluentCollapsingHeaderView: UIView {
     
     // MARK: Overrides
     
-    public override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
+    public override func didMoveToSuperview() {
         for constraint in constraints {
             if constraint.firstAnchor == heightAnchor, constraint.secondAnchor == nil, constraint.constant > 0 {
                 headerHeightConstraint = constraint

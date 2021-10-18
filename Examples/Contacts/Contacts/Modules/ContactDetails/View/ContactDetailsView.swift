@@ -42,7 +42,6 @@ final class ContactDetailsView: UIViewController, ViewInterface {
         
         headerView?.delegate = self
         headerView.minHeight = 150
-        headerView.ignoreSafeAreaInsets = true
 
         avatarImageView.image = presenter.avatar
         fullNameLabel.text = presenter.fullName
