@@ -40,7 +40,8 @@ final class MainView: UIViewController, ViewInterface {
         tableView.separatorColor = .white
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
-
+        tableView.showsVerticalScrollIndicator = false
+        
         tableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
         tableView.register(UINib(nibName: "KeyValueCell", bundle: nil), forCellReuseIdentifier: "KeyValueCell")
 
