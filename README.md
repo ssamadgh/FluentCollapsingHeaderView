@@ -2,6 +2,24 @@
 
 #### A Collapse Header View like iOS Weather App
 
+If you wonder how collapse header view is implemented in **weather** and **contacts** detail in iOS, here is the answer. **FluentCollapsingHeaderView** gives you exactly the same behavior you see in those apps.
+
+## Installation
+
+### Swift Package Manager
+Just add this repository link to Xcode add **Swift Package Manager** placeholder to add this framework to your project.
+
+### Manually
+Just copy all the files in **Source** folder into your project (Make sure target membership of files is checked as your project target)
+
+## Usage
+
+
+
+## Examples
+
+<p align="center"><img src="Images/Sample_1.gif" width="320" height="530"/>&mbsp;<img src="Images/Sample_2.gif" width="320" height="530"/>
+
 
 ## Credits
 
